@@ -10,7 +10,16 @@ module.exports = {
 };
 ```
 
-Make sure Mongodb is installed. Start `mongod`.
+Make sure Mongodb is installed (the install documentation is [here](https://docs.mongodb.org/manual/installation/)). Start `mongod`:
+
 ```
 mongod
+```
+
+Install and Start up server app:
+
+```
+cd server
+npm install
+npm run dev
 ```
