@@ -8,6 +8,12 @@ function tokenForUser(user) {
   return jwt.encode({ sub: user.id, iat: timestamp }, config.secret);
 }
 
+exports.signin = function(req, res, next) {
+  // At this point, user has already been authed via LocalStrategy,
+  // just need to give them a token
+  res.send({ token: tokenForUser(req.user) });
+}
+
 exports.signup = function(req, res, next) {
   const email = req.body.email;
   const password = req.body.password;
@@ -39,5 +45,4 @@ exports.signup = function(req, res, next) {
       res.json({ token: tokenForUser(user) });
     });
   });
-
 }
